@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://b6e7t2l20qlqk"]
+
+[ext_resource type="Script" uid="uid://dxmm46xrfumva" path="res://card_game.gd" id="1_2jybh"]
+[ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="2_2jybh"]
+[ext_resource type="AudioStream" uid="uid://di63pgfi7l2hg" path="res://mp3/January 2015 - Nintendo eShop Music.mp3" id="3_csu0h"]
+[ext_resource type="Shader" uid="uid://sq6df8qjnfji" path="res://card_game.gdshader" id="4_p03o1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vimfd"]
+shader = ExtResource("4_p03o1")
+shader_parameter/colorA = Color(0.9504098, 0.73218185, 0.94190973, 1)
+shader_parameter/colorB = Color(0.7361429, 0.9328491, 1, 1)
+shader_parameter/colorC = Color(0.6241632, 0.9664745, 0.9999996, 1)
+shader_parameter/discomode = false
+shader_parameter/speed = 0.1
+
+[node name="CardGame" type="Control" unique_id=1141261854]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 9.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2jybh")
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=2024962029]
+material = SubResource("ShaderMaterial_vimfd")
+layout_mode = 0
+offset_left = -36.0
+offset_top = -11.0
+offset_right = 1177.0
+offset_bottom = 649.0
+
+[node name="Card1" type="TextureButton" parent="." unique_id=1583437959]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 0
+offset_left = 218.0
+offset_top = 120.0
+offset_right = 318.0
+offset_bottom = 270.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Card2" type="TextureButton" parent="." unique_id=2058221371]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 0
+offset_left = 322.0
+offset_top = 120.0
+offset_right = 422.0
+offset_bottom = 270.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Card3" type="TextureButton" parent="." unique_id=42737393]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 0
+offset_left = 426.0
+offset_top = 120.0
+offset_right = 526.0
+offset_bottom = 270.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Card4" type="TextureButton" parent="." unique_id=1405435239]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 0
+offset_left = 530.0
+offset_top = 120.0
+offset_right = 630.0
+offset_bottom = 270.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Card5" type="TextureButton" parent="." unique_id=2062591534]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 0
+offset_left = 634.0
+offset_top = 120.0
+offset_right = 734.0
+offset_bottom = 270.0
+scale = Vector2(0.3, 0.3)
+
+[node name="RevealCard" type="TextureRect" parent="." unique_id=1156051741]
+custom_minimum_size = Vector2(120, 180)
+layout_mode = 0
+offset_left = 428.0
+offset_top = 380.0
+offset_right = 548.0
+offset_bottom = 560.0
+
+[node name="HigherButton" type="Button" parent="." unique_id=110688523]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 480.0
+offset_right = 504.0
+offset_bottom = 535.0
+theme_override_fonts/font = ExtResource("2_2jybh")
+text = "HIGHER
+"
+
+[node name="LowerButton" type="Button" parent="." unique_id=1389531111]
+layout_mode = 0
+offset_left = 601.0
+offset_top = 480.0
+offset_right = 823.0
+offset_bottom = 535.0
+theme_override_fonts/font = ExtResource("2_2jybh")
+text = "LOWER
+"
+
+[node name="ResultLabel" type="RichTextLabel" parent="." unique_id=1179510034]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.068
+offset_left = 873.0
+offset_top = 269.0
+offset_right = 1118.0
+offset_bottom = 366.548
+bbcode_enabled = true
+
+[node name="BaseCard" type="TextureRect" parent="." unique_id=724905441]
+visible = false
+custom_minimum_size = Vector2(120, 180)
+layout_mode = 0
+offset_left = 966.0
+offset_top = 220.0
+offset_right = 1086.0
+offset_bottom = 400.0
+expand_mode = 1
+
+[node name="ContinueHint" type="Label" parent="." unique_id=93337922]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 572.0
+offset_right = 600.0
+offset_bottom = 603.0
+
+[node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=1139447002]
+stream = ExtResource("3_csu0h")
+autoplay = true
+parameters/looping = true

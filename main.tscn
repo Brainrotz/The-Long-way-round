@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://7ptax67iw84"]
+
+[ext_resource type="Script" uid="uid://c22qhcn78xn7q" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://bny2ud3anoa8q" path="res://player.gd" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://dvoybn1oj4y8b" path="res://art/Ground (54).png" id="3_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bxdgabwyqbg07" path="res://3D/Buildings.glb" id="3_272bh"]
+[ext_resource type="Script" uid="uid://dicjvx5h4ejiv" path="res://vn.gd" id="3_lquwl"]
+[ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://etcaqd6xy2t2" path="res://3D/house.glb" id="7_272bh"]
+[ext_resource type="AudioStream" uid="uid://dm2haltipbbvv" path="res://mp3/DMMd re BGM 01.mp3" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cqu03nhin6y5h" path="res://characters/Characters_psx/Models/Male/Character_02.fbx" id="9_kek77"]
+[ext_resource type="Script" uid="uid://c5c28bn0f12j5" path="res://area_3d.gd" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://bpmxwi7bqrve" path="res://characters/ps1-rat/source/rat_sketchfab/rat_sketchfab/rat.fbx" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://ctjsuurl0q86e" path="res://area2_3d.gd" id="12_dg77c"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7mycd"]
+radius = 0.0005
+height = 2.334668
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
+albedo_color = Color(0.4880544, 0.48805392, 0.48805416, 1)
+albedo_texture = ExtResource("3_7mycd")
+metallic = 0.14
+uv1_scale = Vector3(20, 20, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ig7tw"]
+material = SubResource("StandardMaterial3D_lquwl")
+size = Vector2(150, 150)
+
+[sub_resource type="Skin" id="Skin_0xm2m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mycd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
+
+[sub_resource type="Sky" id="Sky_7mycd"]
+sky_material = SubResource("ProceduralSkyMaterial_7mycd")
+
+[sub_resource type="Environment" id="Environment_272bh"]
+background_mode = 2
+sky = SubResource("Sky_7mycd")
+glow_enabled = true
+fog_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ycdy4"]
+
+[node name="Main" type="Node3D" unique_id=687188043]
+script = ExtResource("1_h2yge")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1505981919 groups=["player"]]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2962093, 0, 43.51725)
+disable_mode = 2
+input_capture_on_drag = true
+script = ExtResource("2_1bvp3")
+
+[node name="PlayerCamera" type="Camera3D" parent="Player" unique_id=2111384953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8038826, 5)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Player/PlayerCamera" unique_id=2064797245]
+transform = Transform3D(1, 0, 0, 0, -0.03315513, 0.9994502, 0, -0.9994502, -0.03315513, 0, -2, -5)
+light_energy = 2.202
+shadow_enabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1756416997]
+physics_interpolation_mode = 1
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.6368073, 0)
+shape = SubResource("CapsuleShape3D_7mycd")
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1064455442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0292435, -2.6497507, 0)
+mesh = SubResource("PlaneMesh_ig7tw")
+skin = SubResource("Skin_0xm2m")
+
+[node name="Buildings" parent="." unique_id=1545166406 instance=ExtResource("3_272bh")]
+physics_interpolation_mode = 1
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -2.661255, 4)
+
+[node name="CollisionShape3D" parent="Buildings/Building_03/StaticBody3D" parent_id_path=PackedInt32Array(1545166406, 1214045457) index="0" unique_id=428720210]
+transform = Transform3D(4000, 0, 0, 0, 4000, 0, 0, 0, 4000, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Building_01" parent_id_path=PackedInt32Array(1545166406, 410702731) index="0" unique_id=1173698446]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/Building_01/StaticBody3D" unique_id=1430184778]
+transform = Transform3D(6000, 0, 0, 0, 6000, 0, 0, 0, 6000, 0, 0, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Building" parent_id_path=PackedInt32Array(1545166406, 1310045861) index="0" unique_id=1397457612]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/Building/StaticBody3D" unique_id=279102640]
+transform = Transform3D(6000, 0, 0, 0, 6000, 0, 0, 0, 6000, 0, 0, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Building_02" parent_id_path=PackedInt32Array(1545166406, 326460420) index="0" unique_id=1014588573]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/Building_02/StaticBody3D" unique_id=134113456]
+transform = Transform3D(7200, 0, 0, 0, 7200, 0, 0, 0, 7200, 0.277874, 0.1937809, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Building_04" parent_id_path=PackedInt32Array(1545166406, 893978404) index="0" unique_id=1546416612]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/Building_04/StaticBody3D" unique_id=817186448]
+transform = Transform3D(4500, 0, 0, 0, 4500, 0, 0, 0, 4500, 0, 0, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Building_09" parent_id_path=PackedInt32Array(1545166406, 2005709377) index="0" unique_id=997566498]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/Building_09/StaticBody3D" unique_id=1117021720]
+transform = Transform3D(3000, 0, 0, 0, 3000, 0, 0, 0, 3000, 0, 0, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Building_05" parent_id_path=PackedInt32Array(1545166406, 1490623748) index="0" unique_id=1069195018]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Buildings/Building_05/StaticBody3D" unique_id=1498125389]
+transform = Transform3D(5400, 0, 0, 0, 5400, 0, 0, 0, 5400, 0, 0, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Building_07" parent_id_path=PackedInt32Array(1545166406, 1422277339) index="0" unique_id=1120859968]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/Building_07/StaticBody3D" unique_id=1491181245]
+transform = Transform3D(4000, 0, 0, 0, 4000, 0, 0, 0, 4000, 0, 0, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Building_08" parent_id_path=PackedInt32Array(1545166406, 908277037) index="0" unique_id=854412607]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Buildings/Building_08/StaticBody3D" unique_id=1147421280]
+transform = Transform3D(3100, 0, 0, 0, 3100, 0, 0, 0, 3100, 0, 0, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Building_06" parent_id_path=PackedInt32Array(1545166406, 252328238) index="0" unique_id=1935076704]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/Building_06/StaticBody3D" unique_id=314047898]
+transform = Transform3D(6000, 0, 0, 0, 6000, 0, 0, 0, 6000, 0, 0, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="VN" type="CanvasLayer" parent="." unique_id=1015829497]
+script = ExtResource("3_lquwl")
+
+[node name="Panel" type="Panel" parent="VN" unique_id=747982122]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VN/Panel" unique_id=721173242]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_1bvp3")
+
+[node name="TextureRect" type="TextureRect" parent="VN" unique_id=1517394218]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=880681385]
+environment = SubResource("Environment_272bh")
+
+[node name="Sketchfab_Scene" parent="." unique_id=992612019 instance=ExtResource("7_272bh")]
+transform = Transform3D(0.9999757, 0, 0.006981315, 0, 1, 0, -0.006981315, 0, 0.9999757, 43.29782, -3.0041552, 17.108585)
+
+[node name="walk" type="AudioStreamPlayer2D" parent="." unique_id=794490629]
+stream = ExtResource("8_5vw27")
+volume_db = -15.98
+autoplay = true
+parameters/looping = true
+
+[node name="Character_02" parent="." unique_id=426292125 instance=ExtResource("9_kek77")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -2.6416125, 42.272)
+
+[node name="Hint" type="Label3D" parent="Character_02" unique_id=1464760427]
+transform = Transform3D(1.9999999, 0, 0, 0, 1.9999999, 0, 0, 0, 1.9999999, -0.03539449, 4.948059, -0.15509033)
+text = "PRESS E TO INTERACT
+"
+
+[node name="Area3D" type="Area3D" parent="Character_02" unique_id=1219626546 groups=["player"]]
+transform = Transform3D(7.692307, 0, 0, 0, 7.692307, 0, 0, 0, 7.692307, 0, 26.696384, -140.90665)
+script = ExtResource("10_4c57u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character_02/Area3D" unique_id=267749282]
+transform = Transform3D(2.9999993, 0, 0, 0, 2.9999993, 0, 0, 0, 2.9999993, -3.6411018, 0, 15.769868)
+shape = SubResource("BoxShape3D_kek77")
+
+[node name="rat" parent="Character_02/Area3D" unique_id=1022222446 instance=ExtResource("11_efxa6")]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0.90573674, -3.4862776, 18.358986)
+
+[node name="hint2" type="Label3D" parent="Character_02/Area3D/rat" unique_id=307438197]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.5531121, -0.09169388)
+text = "PRESS A TO INTERACT"
+
+[node name="Area3D" type="Area3D" parent="Character_02/Area3D/rat" unique_id=1659247413 groups=["player"]]
+script = ExtResource("12_dg77c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character_02/Area3D/rat/Area3D" unique_id=251275660]
+shape = SubResource("CapsuleShape3D_ycdy4")
+
+[editable path="Buildings"]

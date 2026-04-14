@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://di63pgfi7l2hg"
+path="res://.godot/imported/January 2015 - Nintendo eShop Music.mp3-33ce3cd438a61e1e2c3b958166d43d7b.mp3str"
+
+[deps]
+
+source_file="res://mp3/January 2015 - Nintendo eShop Music.mp3"
+dest_files=["res://.godot/imported/January 2015 - Nintendo eShop Music.mp3-33ce3cd438a61e1e2c3b958166d43d7b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

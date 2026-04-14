@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dgr0vdlp45wui"
+path="res://.godot/imported/character.png-62e79d8ebf1ee321e049854bccd90bd3.image"
+
+[deps]
+
+source_file="res://art/character.png"
+dest_files=["res://.godot/imported/character.png-62e79d8ebf1ee321e049854bccd90bd3.image"]
+
+[params]
+
