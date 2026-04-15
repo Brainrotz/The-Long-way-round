@@ -55,6 +55,10 @@ func show_line():
 	$DialogueBox/DialogueLabel.clear()
 	$hint.visible = false
 
+	# Stop any previous sound before starting a new one
+	$dialogue_sound.stop()
+	$sound2.stop()
+
 	if dialogue_index == 3 or dialogue_index == 9:
 		$sound2.play()
 	else:
@@ -78,6 +82,8 @@ func set_dialogue_text(text_to_show: String):
 func type_text():
 	for i in range(full_text.length()):
 		if !is_typing:
+			$dialogue_sound.stop()
+			$sound2.stop()
 			return
 
 		current_text += full_text[i]
@@ -87,6 +93,8 @@ func type_text():
 
 	is_typing = false
 	$hint.visible = true
+	$dialogue_sound.stop()
+	$sound2.stop()
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.pressed):
@@ -94,6 +102,8 @@ func _input(event):
 			is_typing = false
 			set_dialogue_text(full_text)
 			$hint.visible = true
+			$dialogue_sound.stop()
+			$sound2.stop()
 		else:
 			next_line()
 
@@ -103,4 +113,6 @@ func next_line():
 	if dialogue_index < dialogue.size():
 		show_line()
 	else:
-		SceneTransition.change_scene("res://main.tscn")            
+		$dialogue_sound.stop()
+		$sound2.stop()
+		SceneTransition.change_scene("res://main.tscn")

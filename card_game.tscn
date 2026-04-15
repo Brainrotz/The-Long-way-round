@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="2_2jybh"]
 [ext_resource type="AudioStream" uid="uid://di63pgfi7l2hg" path="res://mp3/January 2015 - Nintendo eShop Music.mp3" id="3_csu0h"]
 [ext_resource type="Shader" uid="uid://sq6df8qjnfji" path="res://card_game.gdshader" id="4_p03o1"]
+[ext_resource type="AudioStream" uid="uid://du4jjev21tpgc" path="res://mp3/237422__plasterbrain__hover-1.ogg" id="5_vimfd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vimfd"]
 shader = ExtResource("4_p03o1")
@@ -136,3 +137,7 @@ offset_bottom = 603.0
 stream = ExtResource("3_csu0h")
 autoplay = true
 parameters/looping = true
+
+[node name="hover" type="AudioStreamPlayer2D" parent="." unique_id=1935492825]
+stream = ExtResource("5_vimfd")
+volume_db = 15.0

@@ -66,7 +66,7 @@ func show_dialogue_line():
 		"desc":
 			current_color = "white"
 		"player":
-			current_color = "blue"
+			current_color = "#4a9eff"
 		"npc":
 			current_color = "green"
 
@@ -79,6 +79,7 @@ func show_dialogue_line():
 	$hint.text = "[Space / Click to continue]"
 
 	if has_node("dialogue_sound"):
+		$dialogue_sound.stop()
 		$dialogue_sound.play()
 
 	type_text()
@@ -86,6 +87,8 @@ func show_dialogue_line():
 func type_text():
 	for i in range(full_text.length()):
 		if !is_typing:
+			if has_node("dialogue_sound"):
+				$dialogue_sound.stop()
 			return
 
 		current_text += full_text[i]
@@ -97,12 +100,18 @@ func type_text():
 	is_typing = false
 	$hint.visible = true
 
+	if has_node("dialogue_sound"):
+		$dialogue_sound.stop()
+
 func advance_dialogue():
 	dialogue_index += 1
 
 	if dialogue_index < current_dialogue.size():
 		show_dialogue_line()
 	else:
+		if has_node("dialogue_sound"):
+			$dialogue_sound.stop()
+
 		if state == GameState.VN_INTRO:
 			SceneTransition.change_scene("res://card_game.tscn")
 		elif state == GameState.VN_OUTRO:
@@ -121,5 +130,8 @@ func _unhandled_input(event):
 		$DialogueBox/DialogueLabel.clear()
 		$DialogueBox/DialogueLabel.append_text("[color=%s]%s[/color]" % [current_color, full_text])
 		$hint.visible = true
+
+		if has_node("dialogue_sound"):
+			$dialogue_sound.stop()
 	else:
 		advance_dialogue()

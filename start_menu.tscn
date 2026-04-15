@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cyinpgyfxu2ts" path="res://start_menu.gd" id="1_ia0g5"]
 [ext_resource type="Shader" uid="uid://dwy0gstrtiqtw" path="res://new_shader.gdshader" id="1_jwbto"]
 [ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="2_vpdu5"]
-[ext_resource type="AudioStream" uid="uid://d0nrpebl0k5jh" path="res://mp3/Title - Persona 2 Innocent Sin (PSP).mp3" id="3_ctwoq"]
-[ext_resource type="AudioStream" uid="uid://dvo6851bn03fj" path="res://mp3/HS_SE_005.wav" id="5_ctwoq"]
+[ext_resource type="AudioStream" uid="uid://83r4yq6pv28y" path="res://mp3/661248__magmadiverrr__video-game-menu-music.mp3" id="3_ppfnh"]
+[ext_resource type="AudioStream" uid="uid://du4jjev21tpgc" path="res://mp3/237422__plasterbrain__hover-1.ogg" id="5_ppfnh"]
 [ext_resource type="AudioStream" uid="uid://b5gx0wblaesa3" path="res://mp3/freesound_community-game-start-6104.mp3" id="6_ppfnh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ia0g5"]
@@ -96,7 +96,7 @@ text = "START GAME
 "
 
 [node name="menu" type="AudioStreamPlayer2D" parent="VBoxContainer/Start" unique_id=1858782698]
-stream = ExtResource("3_ctwoq")
+stream = ExtResource("3_ppfnh")
 autoplay = true
 parameters/looping = true
 
@@ -116,7 +116,8 @@ offset_right = 1207.0
 offset_bottom = 711.0
 
 [node name="hover" type="AudioStreamPlayer2D" parent="." unique_id=824944057]
-stream = ExtResource("5_ctwoq")
+stream = ExtResource("5_ppfnh")
+volume_db = 15.0
 
 [node name="click" type="AudioStreamPlayer2D" parent="." unique_id=1882835043]
 stream = ExtResource("6_ppfnh")

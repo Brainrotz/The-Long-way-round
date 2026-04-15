@@ -15,7 +15,8 @@ var dialogue = [
 	{"type": "npc", "text": "Here hold this."},
 	{"type": "desc", "text": "He hands you an empty bottle", "show_bottle": true},
 	{"type": "desc", "text": "Its empty."},
-	{"type": "player", "text": "uh...thanks...listen im just trying to get home..can i go now?"}
+	{"type": "player", "text": "uh...thanks...listen im just trying to get home..can i go now?"},
+	{"type": "npc", "text": "Why"}
 ]
 
 var dialogue_index = 0
@@ -54,7 +55,7 @@ func show_dialogue_line():
 		"desc":
 			current_color = "white"
 		"player":
-			current_color = "blue"
+			current_color = "#4a9eff"
 		"npc":
 			current_color = "red"
 
@@ -72,6 +73,7 @@ func show_dialogue_line():
 		hide_bottle()
 
 	if has_node("dialogue_sound"):
+		$dialogue_sound.stop()
 		$dialogue_sound.play()
 
 	type_text()
@@ -87,6 +89,8 @@ func hide_bottle():
 func type_text():
 	for i in range(full_text.length()):
 		if !is_typing:
+			if has_node("dialogue_sound"):
+				$dialogue_sound.stop()
 			return
 
 		current_text += full_text[i]
@@ -98,12 +102,17 @@ func type_text():
 	is_typing = false
 	$hint.visible = true
 
+	if has_node("dialogue_sound"):
+		$dialogue_sound.stop()
+
 func advance_dialogue():
 	dialogue_index += 1
 
 	if dialogue_index < dialogue.size():
 		show_dialogue_line()
 	else:
+		if has_node("dialogue_sound"):
+			$dialogue_sound.stop()
 		SceneTransition.change_scene("res://main.tscn")
 
 func _unhandled_input(event):
@@ -119,6 +128,9 @@ func _unhandled_input(event):
 		$DialogueBox/DialogueLabel.clear()
 		$DialogueBox/DialogueLabel.append_text("[color=%s]%s[/color]" % [current_color, full_text])
 		$hint.visible = true
+
+		if has_node("dialogue_sound"):
+			$dialogue_sound.stop()
 	else:
 		advance_dialogue()
 
@@ -134,4 +146,4 @@ func blink():
 	portrait.texture = eyes_open
 
 	blink_timer.wait_time = randf_range(1.5, 4.0)
-	blink_timer.start() 
+	blink_timer.start()

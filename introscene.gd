@@ -9,7 +9,7 @@ var dialogue = [
 
 var dialogue_index = 0
 var is_typing = false
-var full_text = "" 
+var full_text = ""
 var current_text = ""
 var typing_speed = 0.03
 
@@ -32,6 +32,7 @@ func show_line(text):
 func type_text():
 	for i in range(full_text.length()):
 		if !is_typing:
+			$dialogue_sound.stop()
 			return
 		
 		current_text += full_text[i]
@@ -39,13 +40,16 @@ func type_text():
 		await get_tree().create_timer(typing_speed).timeout
 	
 	is_typing = false
-	$hint.visible = true   
+	$hint.visible = true
+	$dialogue_sound.stop()
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.pressed):
 		if is_typing:
 			is_typing = false
 			$DialogueBox/DialogueLabel.text = full_text
+			$dialogue_sound.stop()
+			$hint.visible = true
 		else:
 			next_line()
 
@@ -55,4 +59,5 @@ func next_line():
 	if dialogue_index < dialogue.size():
 		show_line(dialogue[dialogue_index])
 	else:
+		$dialogue_sound.stop()
 		SceneTransition.change_scene("res://office_scene.tscn")

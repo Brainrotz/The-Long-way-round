@@ -10,6 +10,7 @@ extends Control
 ]
 
 @onready var reveal_card = $RevealCard
+@onready var hover_sound = $hover
 
 var selected_card: TextureButton = null
 var losses = 0
@@ -52,7 +53,7 @@ func setup_board():
 func connect_cards():
 	for card in cards:
 		card.pressed.connect(func(): _on_card_selected(card))
-		card.mouse_entered.connect(func(): hover_up(card))
+		card.mouse_entered.connect(func(): _on_card_hovered(card))
 		card.mouse_exited.connect(func(): hover_down(card))
 
 func start_round():
@@ -154,6 +155,18 @@ func next_step():
 		SceneTransition.change_scene("res://encounter_1.tscn")
 	else:
 		start_round()
+
+func _on_card_hovered(card: TextureButton):
+	if waiting_for_continue:
+		return
+	if card == selected_card:
+		return
+
+	if hover_sound:
+		hover_sound.stop()
+		hover_sound.play()
+
+	hover_up(card)
 
 func hover_up(card: TextureButton):
 	if waiting_for_continue:

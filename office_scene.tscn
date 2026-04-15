@@ -1,16 +1,12 @@
-[gd_scene format=4 uid="uid://qyyenw2cdonn"]
+[gd_scene format=3 uid="uid://qyyenw2cdonn"]
 
 [ext_resource type="Script" uid="uid://cb4sc0exaebj8" path="res://office_scene.gd" id="1_3h8hk"]
 [ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="1_6kfy7"]
 [ext_resource type="Texture2D" uid="uid://mtreb4o3dkrk" path="res://art/office.jpg" id="2_oakbb"]
 [ext_resource type="Texture2D" uid="uid://cc5mt5005lcsc" path="res://art/open.png" id="4_kjrs5"]
 [ext_resource type="Texture2D" uid="uid://ccs03keoqby1y" path="res://art/close.png" id="5_6iyr2"]
-[ext_resource type="AudioStream" uid="uid://brqamlqndrexl" path="res://mp3/sfx-realization.wav" id="5_k2s4o"]
-
-[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_w0fry"]
-data = PackedByteArray("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")
-format = 3
-mix_rate = 16000
+[ext_resource type="AudioStream" uid="uid://cdg5bvla4mm8s" path="res://mp3/395502__plasterbrain__awkward-tag.mp3" id="6_6iyr2"]
+[ext_resource type="AudioStream" uid="uid://bls6kgawna3cw" path="res://mp3/468927__malakme__medium-text-blip.ogg" id="7_6iyr2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h8hk"]
 bg_color = Color(0, 0, 0, 1)
@@ -71,9 +67,6 @@ offset_bottom = 673.0
 texture = ExtResource("2_oakbb")
 expand_mode = 1
 
-[node name="dialogue_sound" type="AudioStreamPlayer2D" parent="." unique_id=1657380117]
-stream = SubResource("AudioStreamWAV_w0fry")
-
 [node name="hint" type="Label" parent="." unique_id=1537797096]
 layout_mode = 0
 offset_left = 757.0
@@ -120,7 +113,11 @@ animation = &"idle"
 frame_progress = 0.6601147
 
 [node name="sound2" type="AudioStreamPlayer2D" parent="." unique_id=332484752]
-stream = ExtResource("5_k2s4o")
+stream = ExtResource("6_6iyr2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1835236375]
 libraries/ = SubResource("AnimationLibrary_6iyr2")
+
+[node name="dialogue_sound" type="AudioStreamPlayer2D" parent="." unique_id=806283378]
+stream = ExtResource("7_6iyr2")
+volume_db = 24.0
