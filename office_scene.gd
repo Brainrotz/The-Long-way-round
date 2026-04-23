@@ -22,6 +22,7 @@ var full_text = ""
 var current_text = ""
 var current_color = "#ffffff"
 var typing_speed = 0.03
+var using_sound2 = false
 
 func _ready():
 	$hint.visible = false
@@ -51,15 +52,16 @@ func show_line():
 	full_text = line["text"]
 	current_text = ""
 	is_typing = true
+	using_sound2 = false
 
 	$DialogueBox/DialogueLabel.clear()
 	$hint.visible = false
 
-	# Stop any previous sound before starting a new one
 	$dialogue_sound.stop()
 	$sound2.stop()
 
 	if dialogue_index == 3 or dialogue_index == 9:
+		using_sound2 = true
 		$sound2.play()
 	else:
 		$dialogue_sound.play()
@@ -83,7 +85,6 @@ func type_text():
 	for i in range(full_text.length()):
 		if !is_typing:
 			$dialogue_sound.stop()
-			$sound2.stop()
 			return
 
 		current_text += full_text[i]
@@ -93,17 +94,23 @@ func type_text():
 
 	is_typing = false
 	$hint.visible = true
-	$dialogue_sound.stop()
-	$sound2.stop()
+
+	# Only stop the normal typing sound here.
+	# Let sound2 finish naturally.
+	if !using_sound2:
+		$dialogue_sound.stop()
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.pressed):
 		if is_typing:
 			is_typing = false
 			set_dialogue_text(full_text)
-			$hint.visible = true
-			$dialogue_sound.stop()
-			$sound2.stop()
+			$hint.visible = true   
+
+			# Stop only the regular typing sound on skip.
+			# Leave sound2 alone so it can finish.
+			if !using_sound2:
+				$dialogue_sound.stop()
 		else:
 			next_line()
 
@@ -114,5 +121,6 @@ func next_line():
 		show_line()
 	else:
 		$dialogue_sound.stop()
+		# Optional: stop sound2 here only when leaving the scene
 		$sound2.stop()
 		SceneTransition.change_scene("res://main.tscn")

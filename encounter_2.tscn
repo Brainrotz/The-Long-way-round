@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://d1exp7k7h66k3" path="res://encounter_2.gd" id="1_73dmk"]
 [ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="2_73dmk"]
 [ext_resource type="Texture2D" uid="uid://cndn0hptoqr7h" path="res://art/Lobsteropen.png" id="2_p3584"]
-[ext_resource type="Texture2D" uid="uid://yourhlicsgf1" path="res://art/Lobsterclose.png" id="3_kgu13"]
-[ext_resource type="AudioStream" uid="uid://c23453exlpsjy" path="res://mp3/Resetti - Animal Crossing_ New Leaf.mp3" id="4_kgu13"]
 [ext_resource type="Texture2D" uid="uid://c1e50n8cjb1h2" path="res://art/20230729_193027.jpg" id="4_kw1cf"]
+[ext_resource type="AudioStream" uid="uid://dgfvy2wj4dygu" path="res://mp3/ec2.ogg" id="6_kgu13"]
 [ext_resource type="AudioStream" uid="uid://bls6kgawna3cw" path="res://mp3/468927__malakme__medium-text-blip.ogg" id="6_kw1cf"]
 [ext_resource type="Texture2D" uid="uid://yfow44k6lcw6" path="res://art/Beer.png" id="7_kgu13"]
 
@@ -24,8 +23,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_73dmk")
-eyes_open = ExtResource("2_p3584")
-eyes_closed = ExtResource("3_kgu13")
 
 [node name="bg" type="TextureRect" parent="." unique_id=2111546256]
 layout_mode = 1
@@ -96,7 +93,7 @@ stream = ExtResource("6_kw1cf")
 volume_db = 15.0
 
 [node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=1802841029]
-stream = ExtResource("4_kgu13")
+stream = ExtResource("6_kgu13")
 autoplay = true
 parameters/looping = true
 

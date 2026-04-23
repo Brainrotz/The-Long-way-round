@@ -16,7 +16,13 @@ var dialogue = [
 	{"type": "desc", "text": "He hands you an empty bottle", "show_bottle": true},
 	{"type": "desc", "text": "Its empty."},
 	{"type": "player", "text": "uh...thanks...listen im just trying to get home..can i go now?"},
-	{"type": "npc", "text": "Why"}
+	{"type": "npc", "text": "Why"},
+	{"type": "player", "text": "Because I live here?"},
+	{"type": "npc", "text": "Not good enough."},
+	{"type": "desc", "text": "He takes the empty bottle back."},
+	{"type": "npc", "text": "You failed the test."},
+	{"type": "desc", "text": "He walks away sideways like a crab."},
+	{"type": "player", "text": "...what test?"}
 ]
 
 var dialogue_index = 0
@@ -25,6 +31,7 @@ var full_text = ""
 var current_text = ""
 var current_color = "white"
 var typing_speed = 0.03
+var npc_has_left = false
 
 @export var eyes_open: Texture2D
 @export var eyes_closed: Texture2D
@@ -72,17 +79,34 @@ func show_dialogue_line():
 	else:
 		hide_bottle()
 
+	if npc_has_left:
+		portrait.visible = false
+		bottle_image.visible = false
+
 	if has_node("dialogue_sound"):
 		$dialogue_sound.stop()
 		$dialogue_sound.play()
 
+	if line["text"] == "He walks away sideways like a crab.":
+		walk_away()
+
 	type_text()
 
 func show_bottle():
+	if npc_has_left:
+		bottle_image.visible = false
+		portrait.visible = false
+		return
+
 	bottle_image.visible = true
 	portrait.visible = false
 
 func hide_bottle():
+	if npc_has_left:
+		bottle_image.visible = false
+		portrait.visible = false
+		return
+
 	bottle_image.visible = false
 	portrait.visible = true
 
@@ -104,6 +128,64 @@ func type_text():
 
 	if has_node("dialogue_sound"):
 		$dialogue_sound.stop()
+
+func walk_away():
+	if not portrait.visible:
+		return
+
+	npc_has_left = true
+
+	var start_pos = portrait.position
+	var tween = create_tween()
+
+	tween.parallel().tween_property(
+		portrait,
+		"position:x",
+		start_pos.x + 400,
+		1.2
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	tween.parallel().tween_property(
+		portrait,
+		"position:y",
+		start_pos.y - 10,
+		0.2
+	)
+	tween.parallel().tween_property(
+		portrait,
+		"position:y",
+		start_pos.y + 10,
+		0.2
+	).set_delay(0.2)
+	tween.parallel().tween_property(
+		portrait,
+		"position:y",
+		start_pos.y - 10,
+		0.2
+	).set_delay(0.4)
+	tween.parallel().tween_property(
+		portrait,
+		"position:y",
+		start_pos.y + 10,
+		0.2
+	).set_delay(0.6)
+	tween.parallel().tween_property(
+		portrait,
+		"position:y",
+		start_pos.y - 10,
+		0.2
+	).set_delay(0.8)
+	tween.parallel().tween_property(
+		portrait,
+		"position:y",
+		start_pos.y,
+		0.2
+	).set_delay(1.0)
+
+	tween.tween_callback(func():
+		portrait.visible = false
+		bottle_image.visible = false
+	)
 
 func advance_dialogue():
 	dialogue_index += 1

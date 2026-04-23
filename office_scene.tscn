@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cb4sc0exaebj8" path="res://office_scene.gd" id="1_3h8hk"]
 [ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="1_6kfy7"]
-[ext_resource type="Texture2D" uid="uid://mtreb4o3dkrk" path="res://art/office.jpg" id="2_oakbb"]
+[ext_resource type="Texture2D" uid="uid://uihuac2lq56r" path="res://art/desk_drawing.jpeg" id="2_6iyr2"]
 [ext_resource type="Texture2D" uid="uid://cc5mt5005lcsc" path="res://art/open.png" id="4_kjrs5"]
 [ext_resource type="Texture2D" uid="uid://ccs03keoqby1y" path="res://art/close.png" id="5_6iyr2"]
 [ext_resource type="AudioStream" uid="uid://cdg5bvla4mm8s" path="res://mp3/395502__plasterbrain__awkward-tag.mp3" id="6_6iyr2"]
@@ -60,11 +60,11 @@ script = ExtResource("1_3h8hk")
 
 [node name="office" type="TextureRect" parent="." unique_id=1910709500]
 layout_mode = 0
-offset_left = -36.0
-offset_top = -6.0
-offset_right = 1194.0
-offset_bottom = 673.0
-texture = ExtResource("2_oakbb")
+offset_left = -13.0
+offset_top = 1.0
+offset_right = 1176.0
+offset_bottom = 653.0
+texture = ExtResource("2_6iyr2")
 expand_mode = 1
 
 [node name="hint" type="Label" parent="." unique_id=1537797096]

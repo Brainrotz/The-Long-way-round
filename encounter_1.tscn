@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://civ12i0asg33s"]
 
 [ext_resource type="Script" uid="uid://b07w1hi21g0dg" path="res://encounter_1.gd" id="1_y3ooi"]
-[ext_resource type="Texture2D" uid="uid://tiwldkx4mgj4" path="res://art/bg3.jpg" id="2_jicrn"]
+[ext_resource type="Texture2D" uid="uid://dyg3swj2gv5mb" path="res://art/street_drawing.jpeg" id="2_26j38"]
 [ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="3_26j38"]
 [ext_resource type="Texture2D" uid="uid://cegcb4w1tphqi" path="res://art/ec1.png" id="4_cr012"]
-[ext_resource type="AudioStream" uid="uid://2mkjkc8pn773" path="res://mp3/SpotiDownloader.com - Beautiful Death - Masafumi Takada.mp3" id="5_jicrn"]
+[ext_resource type="AudioStream" uid="uid://baa5n2ie0m1qm" path="res://mp3/ec1.ogg" id="5_26j38"]
 [ext_resource type="AudioStream" uid="uid://bls6kgawna3cw" path="res://mp3/468927__malakme__medium-text-blip.ogg" id="6_26j38"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u32rt"]
@@ -30,9 +30,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.93500006
 anchor_bottom = 1.0
-offset_right = 65.78992
-offset_bottom = 6.0
-texture = ExtResource("2_jicrn")
+offset_top = -1.0
+offset_right = 77.78992
+offset_bottom = 19.0
+texture = ExtResource("2_26j38")
 expand_mode = 1
 
 [node name="DialogueBox" type="Panel" parent="." unique_id=252058861]
@@ -64,9 +65,9 @@ fit_content = true
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1020755925]
 layout_mode = 0
-offset_left = 293.0
+offset_left = 270.0
 offset_top = -108.0
-offset_right = 841.0
+offset_right = 818.0
 offset_bottom = 474.0
 texture = ExtResource("4_cr012")
 expand_mode = 1
@@ -87,7 +88,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=840522208]
-stream = ExtResource("5_jicrn")
+stream = ExtResource("5_26j38")
 autoplay = true
 
 [node name="dialogue_sound" type="AudioStreamPlayer2D" parent="." unique_id=1078729298]

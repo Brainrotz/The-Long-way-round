@@ -7,11 +7,13 @@
 [ext_resource type="Script" uid="uid://dicjvx5h4ejiv" path="res://vn.gd" id="3_lquwl"]
 [ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://etcaqd6xy2t2" path="res://3D/house.glb" id="7_272bh"]
-[ext_resource type="AudioStream" uid="uid://dm2haltipbbvv" path="res://mp3/DMMd re BGM 01.mp3" id="8_5vw27"]
+[ext_resource type="AudioStream" uid="uid://upjhhq2gau0s" path="res://mp3/main.ogg" id="8_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cqu03nhin6y5h" path="res://characters/Characters_psx/Models/Male/Character_02.fbx" id="9_kek77"]
 [ext_resource type="Script" uid="uid://c5c28bn0f12j5" path="res://area_3d.gd" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bpmxwi7bqrve" path="res://characters/ps1-rat/source/rat_sketchfab/rat_sketchfab/rat.fbx" id="11_efxa6"]
 [ext_resource type="Script" uid="uid://ctjsuurl0q86e" path="res://area2_3d.gd" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://c56p7y21pnqfp" path="res://characters/Characters_psx/Models/Female/Character_33_Female.fbx" id="13_ycdy4"]
+[ext_resource type="Script" uid="uid://3ep07kjujfls" path="res://area_3d3.gd" id="14_w48qg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7mycd"]
 radius = 0.0005
@@ -47,6 +49,8 @@ volumetric_fog_density = 0.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ycdy4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vivmo"]
 
 [node name="Main" type="Node3D" unique_id=687188043]
 script = ExtResource("1_h2yge")
@@ -132,7 +136,10 @@ shape = SubResource("BoxShape3D_7mycd")
 transform = Transform3D(3100, 0, 0, 0, 3100, 0, 0, 0, 3100, 0, 0, 0)
 shape = SubResource("BoxShape3D_7mycd")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Building_06" parent_id_path=PackedInt32Array(1545166406, 252328238) index="0" unique_id=1935076704]
+[node name="Building_06" parent="Buildings" index="9" unique_id=252328238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.041603, 7.3898096, 53.52491)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Buildings/Building_06" index="0" unique_id=1935076704]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/Building_06/StaticBody3D" unique_id=314047898]
 transform = Transform3D(6000, 0, 0, 0, 6000, 0, 0, 0, 6000, 0, 0, 0)
@@ -161,14 +168,8 @@ environment = SubResource("Environment_272bh")
 [node name="Sketchfab_Scene" parent="." unique_id=992612019 instance=ExtResource("7_272bh")]
 transform = Transform3D(0.9999757, 0, 0.006981315, 0, 1, 0, -0.006981315, 0, 0.9999757, 43.29782, -3.0041552, 17.108585)
 
-[node name="walk" type="AudioStreamPlayer2D" parent="." unique_id=794490629]
-stream = ExtResource("8_5vw27")
-volume_db = -15.98
-autoplay = true
-parameters/looping = true
-
 [node name="Character_02" parent="." unique_id=426292125 instance=ExtResource("9_kek77")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -2.6416125, 42.272)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.013500214, -2.6217685, 42.272)
 
 [node name="Hint" type="Label3D" parent="Character_02" unique_id=1464760427]
 transform = Transform3D(1.9999999, 0, 0, 0, 1.9999999, 0, 0, 0, 1.9999999, -0.03539449, 4.948059, -0.15509033)
@@ -194,6 +195,26 @@ text = "PRESS A TO INTERACT"
 script = ExtResource("12_dg77c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Character_02/Area3D/rat/Area3D" unique_id=251275660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5444328, 0, 0)
 shape = SubResource("CapsuleShape3D_ycdy4")
+
+[node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=1605657832]
+stream = ExtResource("8_dg77c")
+autoplay = true
+parameters/looping = true
+
+[node name="Character_33_Female" parent="." unique_id=1564489588 instance=ExtResource("13_ycdy4")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 3.6721153, -2.6293786, 42.287712)
+
+[node name="Area3D" type="Area3D" parent="Character_33_Female" unique_id=1734087196]
+script = ExtResource("14_w48qg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character_33_Female/Area3D" unique_id=1415625965]
+shape = SubResource("BoxShape3D_vivmo")
+
+[node name="Label3D" type="Label3D" parent="Character_33_Female" unique_id=1431335019]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 5.103965, 0)
+text = "PRESS D TO INTERACT"
+font_size = 37
 
 [editable path="Buildings"]

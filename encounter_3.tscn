@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bp4t88xlidccl"]
+
+[ext_resource type="Script" uid="uid://lbqfyyhpcsmj" path="res://encounter_3.gd" id="1_dghqd"]
+[ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="1_ugbg8"]
+[ext_resource type="AudioStream" uid="uid://bls6kgawna3cw" path="res://mp3/468927__malakme__medium-text-blip.ogg" id="2_ag3fv"]
+[ext_resource type="Texture2D" uid="uid://7wpxas7h4uxd" path="res://art/chav.png" id="3_ag3fv"]
+[ext_resource type="Texture2D" uid="uid://dyg3swj2gv5mb" path="res://art/street_drawing.jpeg" id="4_dm1ab"]
+[ext_resource type="Texture2D" uid="uid://djfq4mmdjhnav" path="res://art/baccy1.png" id="6_jeodd"]
+[ext_resource type="AudioStream" uid="uid://baa5n2ie0m1qm" path="res://mp3/ec1.ogg" id="7_dm1ab"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f84pu"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[node name="encounter_3" type="Control" unique_id=248020160]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dghqd")
+
+[node name="DialogueBox" type="Panel" parent="." unique_id=1299627520]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -548.0
+offset_top = -162.0
+offset_right = 530.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f84pu")
+
+[node name="DialogueLabel" type="RichTextLabel" parent="DialogueBox" unique_id=1743646556]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 22.0
+offset_right = 1067.0
+offset_bottom = 121.0
+theme_override_fonts/normal_font = ExtResource("1_ugbg8")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+fit_content = true
+
+[node name="dialogue_sound" type="AudioStreamPlayer2D" parent="." unique_id=1334778505]
+stream = ExtResource("2_ag3fv")
+volume_db = 15.0
+
+[node name="Bg" type="TextureRect" parent="." unique_id=989859436]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_dm1ab")
+
+[node name="npc" type="TextureRect" parent="." unique_id=722993026]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 50.0
+offset_right = 1284.0
+offset_bottom = 1074.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ag3fv")
+
+[node name="hint" type="Label" parent="." unique_id=1385482674]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 430.0
+offset_right = 1008.0
+offset_bottom = 514.0
+theme_override_fonts/font = ExtResource("1_ugbg8")
+theme_override_font_sizes/font_size = 35
+text = "[Space to continue]"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1698110126]
+layout_mode = 0
+offset_left = 301.99997
+offset_top = -18.000008
+offset_right = 1382.0
+offset_bottom = 1332.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_jeodd")
+
+[node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=1514059100]
+stream = ExtResource("7_dm1ab")
+autoplay = true
