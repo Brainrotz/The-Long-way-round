@@ -123,4 +123,4 @@ func next_line():
 		$dialogue_sound.stop()
 		# Optional: stop sound2 here only when leaving the scene
 		$sound2.stop()
-		SceneTransition.change_scene("res://main.tscn")
+		SceneTransition.change_scene("res://mainfinal.tscn")
