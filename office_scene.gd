@@ -95,8 +95,6 @@ func type_text():
 	is_typing = false
 	$hint.visible = true
 
-	# Only stop the normal typing sound here.
-	# Let sound2 finish naturally.
 	if !using_sound2:
 		$dialogue_sound.stop()
 
@@ -107,8 +105,6 @@ func _input(event):
 			set_dialogue_text(full_text)
 			$hint.visible = true   
 
-			# Stop only the regular typing sound on skip.
-			# Leave sound2 alone so it can finish.
 			if !using_sound2:
 				$dialogue_sound.stop()
 		else:
@@ -121,6 +117,5 @@ func next_line():
 		show_line()
 	else:
 		$dialogue_sound.stop()
-		# Optional: stop sound2 here only when leaving the scene
 		$sound2.stop()
 		SceneTransition.change_scene("res://mainfinal.tscn")

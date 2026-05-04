@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnl4k81dna3lu"]
 
 [ext_resource type="Script" uid="uid://d0kmu6hq4a7mc" path="res://introscene.gd" id="1_2glrg"]
-[ext_resource type="Texture2D" uid="uid://4w171cyyvflt" path="res://art/outside1.jpeg" id="2_o8unc"]
+[ext_resource type="Texture2D" uid="uid://8hwcj4180f6t" path="res://art/nice entrance.jpg" id="2_o8unc"]
 [ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="3_b1u3c"]
 [ext_resource type="AudioStream" uid="uid://bls6kgawna3cw" path="res://mp3/468927__malakme__medium-text-blip.ogg" id="4_o8unc"]
 

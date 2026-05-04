@@ -114,8 +114,10 @@ func advance_dialogue():
 
 		if state == GameState.VN_INTRO:
 			SceneTransition.change_scene("res://card_game.tscn")
+
 		elif state == GameState.VN_OUTRO:
-			SceneTransition.change_scene("res://main.tscn")
+			GlobalData.returning_from_encounter = true
+			SceneTransition.change_scene("res://mainfinal.tscn")
 
 func _unhandled_input(event):
 	var pressed_continue = event.is_action_pressed("ui_accept") or (

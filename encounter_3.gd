@@ -110,7 +110,8 @@ func advance_dialogue():
 	else:
 		if has_node("dialogue_sound"):
 			$dialogue_sound.stop()
-		SceneTransition.change_scene("res://main.tscn")
+			GlobalData.returning_from_encounter = true
+		SceneTransition.change_scene("res://mainfinal.tscn")
 
 func _unhandled_input(event):
 	var pressed_continue = event.is_action_pressed("ui_accept") or (
