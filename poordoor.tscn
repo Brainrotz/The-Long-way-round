@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bqqkvlvmagnmv"]
+
+[ext_resource type="Script" uid="uid://cj6dgpgc80ami" path="res://poordoor.gd" id="1_kw2s5"]
+[ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="1_xnmjp"]
+[ext_resource type="AudioStream" uid="uid://bls6kgawna3cw" path="res://mp3/468927__malakme__medium-text-blip.ogg" id="2_ow8oe"]
+[ext_resource type="Texture2D" uid="uid://cl1m6fbbav52u" path="res://art/Bad entrance.jpg" id="3_kw2s5"]
+[ext_resource type="AudioStream" uid="uid://dj6wkracoudss" path="res://mp3/Sketchbook 2023-11-29.ogg" id="5_ibjtq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibjtq"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[node name="poordoor" type="Control" unique_id=1061012225]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kw2s5")
+
+[node name="DialogueBox" type="Panel" parent="." unique_id=109895812]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -548.0
+offset_top = -162.0
+offset_right = 530.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ibjtq")
+
+[node name="DialogueLabel" type="RichTextLabel" parent="DialogueBox" unique_id=988118869]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 22.0
+offset_right = 1067.0
+offset_bottom = 121.0
+theme_override_fonts/normal_font = ExtResource("1_xnmjp")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+fit_content = true
+
+[node name="dialogue_sound" type="AudioStreamPlayer2D" parent="." unique_id=614342766]
+stream = ExtResource("2_ow8oe")
+volume_db = 14.945
+
+[node name="Bg" type="TextureRect" parent="." unique_id=1965404748]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_kw2s5")
+
+[node name="hint" type="Label" parent="." unique_id=1708361933]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 430.0
+offset_right = 1008.0
+offset_bottom = 514.0
+theme_override_fonts/font = ExtResource("1_xnmjp")
+theme_override_font_sizes/font_size = 35
+text = "[Space to continue]"
+
+[node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=963141642]
+stream = ExtResource("5_ibjtq")
+volume_db = 4.333
+autoplay = true
+parameters/looping = true

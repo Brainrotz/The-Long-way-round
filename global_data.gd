@@ -7,3 +7,4 @@ var from_card_game = false
 var encounter_1_done := false
 var encounter_2_done := false
 var encounter_3_done := false
+var poordoor_done := false
