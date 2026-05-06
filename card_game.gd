@@ -67,7 +67,7 @@ func start_round():
 
 	$ContinueHint.text = ""
 
-	$HigherButton.disabled = true
+	$HigherButton.disabled = true	
 	$LowerButton.disabled = true
 
 	for card in cards:

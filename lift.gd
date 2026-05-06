@@ -1,12 +1,14 @@
 extends Control
 
 var dialogue = [
-	"Well that took way longer than i expected..",
-	"Not sure why every person felt the need to stop me.",
-	"Ugh it stinks! Why does no one know how to use a bin!",
-	"...Of course the buzzer is broke.",
-	"Are...are the wires hanging out? How. How do you even manage to do that.",
-	"Let me just go in before i give myself an aneurysm"
+	"Oh nice. Still broken.",
+	"Been like this for months.",
+	"They’ve got three lifts round the front.",
+	"And someone to press the button for them.",
+	"We’ve got this masterpiece.",
+	"Suppose we're not the priority, are we?",
+	"Well i guess i can get my steps in and use the stairs...not that i have choice",
+	"okay...to the 10th floor we go"
 ]
 
 var dialogue_index = 0
