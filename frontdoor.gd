@@ -1,14 +1,14 @@
 extends Control
 
 var dialogue = [
-	"Oh nice. Still broken.",
-	"Been like this for months.",
-	"They’ve got three lifts round the front.",
-	"And someone to press the button for them.",
-	"We’ve got this masterpiece.",
-	"Suppose we're not the priority, are we?",
-	"Well i guess i can get my steps in and use the stairs...not that i have choice",
-	"okay...to the 10th floor we go"
+	"My knees.",
+	"Oh great...more undisclosed bills for me to pay.",
+	"What will it take for them to fix the damp and mold issues in this part of the apartment.",
+	"I heard they built a new rooftop bar.",
+	"Meanwhile this corridor smells like a wet towel.",
+	"Suppose we're not the target audience, are we?",
+	"Oh for fuck sake i forgot to buy milk...",
+	"Time to do this all over again."
 ]
 
 var dialogue_index = 0
@@ -64,4 +64,5 @@ func next_line():
 		show_line(dialogue[dialogue_index])
 	else:
 		$dialogue_sound.stop()
-		SceneTransition.change_scene("res://frontdoor.tscn")
+		GlobalData.easy_mode_unlocked = true
+		SceneTransition.change_scene("res://start_menu.tscn")

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bid47cartb5xu"]
+
+[ext_resource type="Script" uid="uid://dbxro2cimukl5" path="res://frontdoor.gd" id="1_apfpx"]
+[ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="2_xx2lk"]
+[ext_resource type="AudioStream" uid="uid://bls6kgawna3cw" path="res://mp3/468927__malakme__medium-text-blip.ogg" id="3_qp8fo"]
+[ext_resource type="Texture2D" uid="uid://8lkull3m45c2" path="res://art/door.png" id="4_7rott"]
+[ext_resource type="AudioStream" uid="uid://c3d7n26dfo15q" path="res://mp3/final.ogg" id="5_apfpx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82r00"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[node name="Frontdoor" type="Control" unique_id=481938192]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_apfpx")
+
+[node name="DialogueBox" type="Panel" parent="." unique_id=1724199111]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -548.0
+offset_top = -162.0
+offset_right = 530.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_82r00")
+
+[node name="DialogueLabel" type="RichTextLabel" parent="DialogueBox" unique_id=1410001946]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 22.0
+offset_right = 1067.0
+offset_bottom = 121.0
+theme_override_fonts/normal_font = ExtResource("2_xx2lk")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+fit_content = true
+
+[node name="dialogue_sound" type="AudioStreamPlayer2D" parent="." unique_id=1700102417]
+stream = ExtResource("3_qp8fo")
+volume_db = 14.945
+
+[node name="Bg" type="TextureRect" parent="." unique_id=538199166]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -76.0
+offset_right = 3840.9998
+offset_bottom = 2417.3333
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_7rott")
+
+[node name="hint" type="Label" parent="." unique_id=1365548499]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 430.0
+offset_right = 1008.0
+offset_bottom = 514.0
+theme_override_fonts/font = ExtResource("2_xx2lk")
+theme_override_font_sizes/font_size = 35
+text = "[Space to continue]"
+
+[node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=1125936731]
+stream = ExtResource("5_apfpx")
+volume_db = 4.333
+autoplay = true
+parameters/looping = true

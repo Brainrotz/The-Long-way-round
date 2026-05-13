@@ -107,6 +107,12 @@ theme_override_font_sizes/font_size = 40
 text = "QUIT
 "
 
+[node name="EasyMode" type="Button" parent="VBoxContainer" unique_id=889864366]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vpdu5")
+theme_override_font_sizes/font_size = 40
+text = "EASY MODE"
+
 [node name="Background" type="ColorRect" parent="." unique_id=428666197]
 material = SubResource("ShaderMaterial_ia0g5")
 layout_mode = 0

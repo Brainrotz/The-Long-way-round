@@ -8,3 +8,4 @@ var encounter_1_done := false
 var encounter_2_done := false
 var encounter_3_done := false
 var poordoor_done := false
+var easy_mode_unlocked = false
