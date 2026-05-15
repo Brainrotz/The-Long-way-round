@@ -23,4 +23,7 @@ func _on_body_entered(body):
 
 		GlobalData.encounter_1_done = true
 
-		get_tree().change_scene_to_file(encounter_scene_path)
+		call_deferred("go_to_encounter")
+
+func go_to_encounter():
+	get_tree().change_scene_to_file(encounter_scene_path)
