@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d1exp7k7h66k3" path="res://encounter_2.gd" id="1_73dmk"]
 [ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="2_73dmk"]
+[ext_resource type="Texture2D" uid="uid://bhu0bboj71e1u" path="res://art/Grafittibackground.jpg" id="2_kgu13"]
 [ext_resource type="Texture2D" uid="uid://cndn0hptoqr7h" path="res://art/Lobsteropen.png" id="2_p3584"]
-[ext_resource type="Texture2D" uid="uid://c1e50n8cjb1h2" path="res://art/20230729_193027.jpg" id="4_kw1cf"]
 [ext_resource type="AudioStream" uid="uid://dgfvy2wj4dygu" path="res://mp3/ec2.ogg" id="6_kgu13"]
 [ext_resource type="AudioStream" uid="uid://bls6kgawna3cw" path="res://mp3/468927__malakme__medium-text-blip.ogg" id="6_kw1cf"]
 [ext_resource type="Texture2D" uid="uid://yfow44k6lcw6" path="res://art/Beer.png" id="7_kgu13"]
@@ -31,7 +31,7 @@ anchor_right = 0.93500006
 anchor_bottom = 1.0
 offset_right = 65.78992
 offset_bottom = 6.0
-texture = ExtResource("4_kw1cf")
+texture = ExtResource("2_kgu13")
 expand_mode = 1
 
 [node name="DialogueBox" type="Panel" parent="." unique_id=1367537120]

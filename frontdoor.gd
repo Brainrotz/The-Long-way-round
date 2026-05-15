@@ -65,4 +65,4 @@ func next_line():
 	else:
 		$dialogue_sound.stop()
 		GlobalData.easy_mode_unlocked = true
-		SceneTransition.change_scene("res://start_menu.tscn")
+		SceneTransition.change_scene("res://credits.tscn")

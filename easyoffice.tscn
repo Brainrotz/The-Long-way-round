@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://uid44ylnjcrj"]
+
+[ext_resource type="Script" uid="uid://ddkcdj8icn4gh" path="res://easyoffice.gd" id="1_uhl8r"]
+[ext_resource type="Texture2D" uid="uid://uihuac2lq56r" path="res://art/desk_drawing.jpeg" id="2_wqi4g"]
+[ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="3_xg8ku"]
+[ext_resource type="Texture2D" uid="uid://cc5mt5005lcsc" path="res://art/open.png" id="4_0nvf2"]
+[ext_resource type="Texture2D" uid="uid://ccs03keoqby1y" path="res://art/close.png" id="5_k7r05"]
+[ext_resource type="AudioStream" uid="uid://cdg5bvla4mm8s" path="res://mp3/395502__plasterbrain__awkward-tag.mp3" id="6_4xftg"]
+[ext_resource type="AudioStream" uid="uid://bls6kgawna3cw" path="res://mp3/468927__malakme__medium-text-blip.ogg" id="7_42yri"]
+[ext_resource type="AudioStream" uid="uid://wcwo5r8nprep" path="res://mp3/Sketchbook 2025-11-26.ogg" id="8_djqww"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se87j"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kos55"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("4_0nvf2")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_0nvf2")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_0nvf2")
+}, {
+"duration": 5.0,
+"texture": ExtResource("5_k7r05")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_k7r05")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_k7r05")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_kjrs5"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5wos"]
+_data = {
+&"idle": SubResource("Animation_kjrs5")
+}
+
+[node name="easyoffice" type="Control" unique_id=1053028212]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhl8r")
+
+[node name="office" type="TextureRect" parent="." unique_id=1353102609]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 1.0
+offset_right = 1176.0
+offset_bottom = 653.0
+texture = ExtResource("2_wqi4g")
+expand_mode = 1
+
+[node name="hint" type="Label" parent="." unique_id=111337065]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 439.0
+offset_right = 1159.0
+offset_bottom = 530.0
+theme_override_fonts/font = ExtResource("3_xg8ku")
+theme_override_font_sizes/font_size = 40
+text = "[Space to continue]"
+
+[node name="DialogueBox" type="Panel" parent="." unique_id=1500811228]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -562.0
+offset_top = -168.0
+offset_right = 566.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_se87j")
+
+[node name="DialogueLabel" type="RichTextLabel" parent="DialogueBox" unique_id=951157700]
+z_index = 2
+layout_mode = 0
+offset_left = 24.0
+offset_top = 23.0
+offset_right = 1069.0
+offset_bottom = 122.0
+theme_override_fonts/normal_font = ExtResource("3_xg8ku")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+autowrap_mode = 2
+
+[node name="character" type="AnimatedSprite2D" parent="." unique_id=1989615074]
+position = Vector2(528, 315)
+scale = Vector2(0.5773926, 0.5576172)
+sprite_frames = SubResource("SpriteFrames_kos55")
+animation = &"idle"
+
+[node name="sound2" type="AudioStreamPlayer2D" parent="." unique_id=630557990]
+stream = ExtResource("6_4xftg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1341398075]
+libraries/ = SubResource("AnimationLibrary_v5wos")
+
+[node name="dialogue_sound" type="AudioStreamPlayer2D" parent="." unique_id=1732617923]
+stream = ExtResource("7_42yri")
+volume_db = 24.0
+
+[node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=718356445]
+stream = ExtResource("8_djqww")
+volume_db = 4.333
+autoplay = true
+parameters/looping = true

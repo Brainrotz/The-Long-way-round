@@ -37,6 +37,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ppfnh"]
 resource_name = "flash"
+length = 0.73333335
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -50,10 +51,27 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.007843138, 0.007843138, 0.007843138, 0.003921569), Color(1, 1, 1, 1), Color(0.007843138, 0.007843138, 0.007843138, 0.003921569), Color(1, 1, 1, 1), Color(0.007843138, 0.007843138, 0.007843138, 0.003921569), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_7boi2"]
+resource_name = "flash_easy"
+length = 0.73333335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../EasyMode:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.46666667, 0.6666667, 0.8666667, 1.0333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.007843138, 0.007843138, 0.007843138, 0.003921569), Color(1, 1, 1, 1), Color(0.007843138, 0.007843138, 0.007843138, 0.003921569), Color(1, 1, 1, 1), Color(0.007843138, 0.007843138, 0.007843138, 0.003921569), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7boi2"]
 _data = {
 &"RESET": SubResource("Animation_ctwoq"),
-&"flash": SubResource("Animation_ppfnh")
+&"flash": SubResource("Animation_ppfnh"),
+&"flash_easy": SubResource("Animation_7boi2")
 }
 
 [node name="StartMenu" type="Control" unique_id=1367244534]
@@ -107,11 +125,17 @@ theme_override_font_sizes/font_size = 40
 text = "QUIT
 "
 
-[node name="EasyMode" type="Button" parent="VBoxContainer" unique_id=889864366]
+[node name="EasyMode" type="Button" parent="VBoxContainer" unique_id=292707306]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_vpdu5")
 theme_override_font_sizes/font_size = 40
-text = "EASY MODE"
+text = "EASY MODE
+"
+
+[node name="menu" type="AudioStreamPlayer2D" parent="VBoxContainer/EasyMode" unique_id=1518497957]
+stream = ExtResource("3_ppfnh")
+autoplay = true
+parameters/looping = true
 
 [node name="Background" type="ColorRect" parent="." unique_id=428666197]
 material = SubResource("ShaderMaterial_ia0g5")

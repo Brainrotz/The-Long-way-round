@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8hwcj4180f6t" path="res://art/nice entrance.jpg" id="2_o8unc"]
 [ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="3_b1u3c"]
 [ext_resource type="AudioStream" uid="uid://bls6kgawna3cw" path="res://mp3/468927__malakme__medium-text-blip.ogg" id="4_o8unc"]
+[ext_resource type="AudioStream" uid="uid://d1vf7kx7aim0c" path="res://mp3/intro.ogg" id="5_b1u3c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7lmj"]
 bg_color = Color(0, 0, 0, 1)
@@ -75,3 +76,9 @@ text = "[Space to continue]"
 [node name="dialogue_sound" type="AudioStreamPlayer2D" parent="." unique_id=1688097749]
 stream = ExtResource("4_o8unc")
 volume_db = 24.0
+
+[node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=1161920443]
+stream = ExtResource("5_b1u3c")
+volume_db = 4.333
+autoplay = true
+parameters/looping = true

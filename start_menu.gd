@@ -31,11 +31,11 @@ func _on_easy_mode_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	$click.play()
-	$AnimationPlayer.play("flash")
+	$AnimationPlayer.play("flash_easy")
 
 	await $AnimationPlayer.animation_finished
 
-	SceneTransition.change_scene("res://easy_mode_intro.tscn")
+	SceneTransition.change_scene("res://easyintro.tscn")
 
 func _on_quit_pressed():
 	$click.play()

@@ -1,0 +1,100 @@
+extends Control
+
+var dialogue = [
+	{"type": "player", "text": "Hello"},
+	{"type": "npc", "text": "Hiya , which floor?"},
+	{"type": "player", "text": "Flat 10! floor 3"},
+	{"type": "npc", "text": "Okay no problem, lifts open for you have a good day."},
+	{"type": "player", "text": "Thank you!"}
+]
+
+var dialogue_index = 0
+var is_typing = false
+var full_text = ""
+var current_text = ""
+var current_color = "#ffffff"
+var typing_speed = 0.03
+
+func _ready():
+	$hint.visible = false
+	$character.visible = false
+	$character.play("idle")
+
+	if $DialogueBox/DialogueLabel is RichTextLabel:
+		$DialogueBox/DialogueLabel.bbcode_enabled = true
+
+	start_dialogue()
+
+func start_dialogue():
+	dialogue_index = 0
+	show_line()
+
+func show_line():
+	var line = dialogue[dialogue_index]
+
+	match line["type"]:
+		"desc":
+			current_color = "#ffffff"
+		"player":
+			current_color = "#4a9eff"
+		"npc":
+			current_color = "#ff7aa2"
+
+	full_text = line["text"]
+	current_text = ""
+	is_typing = true
+
+	$DialogueBox/DialogueLabel.clear()
+	$hint.visible = false
+
+	$dialogue_sound.stop()
+	$dialogue_sound.play()
+
+	if dialogue_index >= 1:
+		$character.visible = true
+		$character.play("idle")
+	else:
+		$character.visible = false
+		$character.stop()
+
+	type_text()
+
+func set_dialogue_text(text_to_show: String):
+	$DialogueBox/DialogueLabel.clear()
+	$DialogueBox/DialogueLabel.append_text(
+		"[color=%s]%s[/color]" % [current_color, text_to_show]
+	)
+
+func type_text():
+	for i in range(full_text.length()):
+		if !is_typing:
+			$dialogue_sound.stop()
+			return
+
+		current_text += full_text[i]
+		set_dialogue_text(current_text)
+
+		await get_tree().create_timer(typing_speed).timeout
+
+	is_typing = false
+	$hint.visible = true
+	$dialogue_sound.stop()
+
+func _input(event):
+	if event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.pressed):
+		if is_typing:
+			is_typing = false
+			set_dialogue_text(full_text)
+			$hint.visible = true
+			$dialogue_sound.stop()
+		else:
+			next_line()
+
+func next_line():
+	dialogue_index += 1
+
+	if dialogue_index < dialogue.size():
+		show_line()
+	else:
+		$dialogue_sound.stop()
+		SceneTransition.change_scene("res://credits.tscn")

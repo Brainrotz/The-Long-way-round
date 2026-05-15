@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dfja4r3rkhbro"]
+
+[ext_resource type="Script" uid="uid://c2pfdqd6pgwfe" path="res://credits.gd" id="1_nm7lk"]
+[ext_resource type="FontFile" uid="uid://6qigibr57bf5" path="res://fonts/Awesome 9.ttf" id="2_c1t8d"]
+[ext_resource type="Shader" uid="uid://dwy0gstrtiqtw" path="res://new_shader.gdshader" id="3_g4wvt"]
+[ext_resource type="AudioStream" uid="uid://bytxd0bbgsin8" path="res://mp3/credits.ogg" id="4_pjc1l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pjc1l"]
+shader = ExtResource("3_g4wvt")
+shader_parameter/speed = 0.1
+shader_parameter/pixelation = 8.0
+shader_parameter/zoom = 2.0
+shader_parameter/gradient_pixelation = 0.2
+shader_parameter/background_threshold = 0.0
+shader_parameter/color_low_threshold = 0.24
+shader_parameter/color_mid_threshold = 0.48
+shader_parameter/color_low = Color(0.01, 0.41, 0.51, 1)
+shader_parameter/color_mid = Color(0.5, 0.1, 0.3, 1)
+shader_parameter/color_high = Color(1, 1, 1, 1)
+
+[node name="credits" type="Control" unique_id=1787986552]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nm7lk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1204438995]
+visible = false
+layout_mode = 0
+offset_right = 1179.0
+offset_bottom = 651.0
+
+[node name="CreditsText" type="RichTextLabel" parent="." unique_id=1653835711]
+z_index = 2
+layout_mode = 0
+offset_left = 36.0
+offset_top = 37.0
+offset_right = 1128.0
+offset_bottom = 589.0
+theme_override_fonts/normal_font = ExtResource("2_c1t8d")
+
+[node name="Timer" type="Timer" parent="." unique_id=1642036282]
+
+[node name="Background" type="ColorRect" parent="." unique_id=956683344]
+material = SubResource("ShaderMaterial_pjc1l")
+layout_mode = 0
+offset_left = -72.0
+offset_top = -31.0
+offset_right = 1207.0
+offset_bottom = 711.0
+
+[node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=141077737]
+stream = ExtResource("4_pjc1l")
+volume_db = 4.333
+autoplay = true
+parameters/looping = true
