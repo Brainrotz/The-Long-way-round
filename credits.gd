@@ -57,6 +57,10 @@ Warped Fractal Noise Shader
 godotshaders.com/shader/warped-fractal-noise
 Used for start menu and credits
 
+Balatro Original Paint Background Shader
+godotshaders.com/shader/balatro-original-paint-background
+Used as shader background in the card mini-game
+
 
 [font_size=22]Music and Sound Effects[/font_size]
 Start Menu Sound Effect
