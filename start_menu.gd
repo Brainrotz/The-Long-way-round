@@ -1,16 +1,22 @@
 extends Control
 
+@onready var start_button = $VBoxContainer/Start
+@onready var quit_button = $VBoxContainer/Quit
 @onready var easy_mode_button = $VBoxContainer/EasyMode
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-	$VBoxContainer/Start.pressed.connect(_on_start_pressed)
-	$VBoxContainer/Quit.pressed.connect(_on_quit_pressed)
+	# Lets controller / keyboard navigation start on the Start button
+	start_button.grab_focus()
 
-	$VBoxContainer/Start.mouse_entered.connect(_on_start_mouse_entered)
-	$VBoxContainer/Quit.mouse_entered.connect(_on_quit_mouse_entered)
+	start_button.pressed.connect(_on_start_pressed)
+	quit_button.pressed.connect(_on_quit_pressed)
 
+	start_button.mouse_entered.connect(_on_start_mouse_entered)
+	quit_button.mouse_entered.connect(_on_quit_mouse_entered)
+
+	# Easy Mode only appears after it has been unlocked
 	easy_mode_button.visible = GlobalData.easy_mode_unlocked
 
 	if easy_mode_button.visible:

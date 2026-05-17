@@ -136,7 +136,6 @@ offset_bottom = 603.0
 [node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=1139447002]
 stream = ExtResource("4_vimfd")
 autoplay = true
-stream_paused = true
 parameters/looping = true
 
 [node name="hover" type="AudioStreamPlayer2D" parent="." unique_id=1935492825]

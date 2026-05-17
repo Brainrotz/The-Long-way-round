@@ -11,11 +11,15 @@ extends Control
 
 @onready var reveal_card = $RevealCard
 @onready var hover_sound = $hover
+@onready var higher_button = $HigherButton
+@onready var lower_button = $LowerButton
 
 var selected_card: TextureButton = null
 var losses = 0
 var max_losses = 3
 var waiting_for_continue = false
+var choosing_higher_lower = false
+var card_selection_locked = false
 
 var loss_dialogue = [
 	("Oh... that's peak."),
@@ -35,11 +39,17 @@ func _ready():
 	for card in cards:
 		original_positions[card] = card.position
 		card.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+		card.focus_mode = Control.FOCUS_ALL
+
+	higher_button.focus_mode = Control.FOCUS_ALL
+	lower_button.focus_mode = Control.FOCUS_ALL
 
 	setup_board()
 	connect_cards()
-	$HigherButton.pressed.connect(_on_higher_pressed)
-	$LowerButton.pressed.connect(_on_lower_pressed)
+
+	higher_button.pressed.connect(_on_higher_pressed)
+	lower_button.pressed.connect(_on_lower_pressed)
+
 	start_round()
 
 func setup_board():
@@ -53,12 +63,31 @@ func setup_board():
 func connect_cards():
 	for card in cards:
 		card.pressed.connect(func(): _on_card_selected(card))
-		card.mouse_entered.connect(func(): _on_card_hovered(card))
-		card.mouse_exited.connect(func(): hover_down(card))
+
+		card.mouse_entered.connect(func():
+			if !choosing_higher_lower and !card_selection_locked:
+				_on_card_hovered(card)
+				card.grab_focus()
+		)
+
+		card.mouse_exited.connect(func():
+			hover_down(card)
+		)
+
+		card.focus_entered.connect(func():
+			if !choosing_higher_lower and !card_selection_locked:
+				_on_card_focused(card)
+		)
+
+		card.focus_exited.connect(func():
+			hover_down(card)
+		)
 
 func start_round():
 	waiting_for_continue = false
+	choosing_higher_lower = false
 	selected_card = null
+	card_selection_locked = true
 
 	if $ResultLabel is RichTextLabel:
 		$ResultLabel.text = "[color=black]Pick a card, then guess if it is higher or lower than 7.[/color]"
@@ -67,8 +96,8 @@ func start_round():
 
 	$ContinueHint.text = ""
 
-	$HigherButton.disabled = true	
-	$LowerButton.disabled = true
+	higher_button.disabled = true
+	lower_button.disabled = true
 
 	for card in cards:
 		card.texture_normal = preload("res://cards/back.jpg")
@@ -77,24 +106,49 @@ func start_round():
 
 	reveal_card.visible = false
 
+	# Start focus on first card, but do not allow immediate selection from the same A press
+	cards[0].grab_focus()
+	await get_tree().create_timer(0.15).timeout
+	card_selection_locked = false
+
 func _on_card_selected(card: TextureButton):
 	if waiting_for_continue:
 		return
 
+	if choosing_higher_lower:
+		return
+
+	if card_selection_locked:
+		return
+
 	selected_card = card
+	choosing_higher_lower = true
 
 	for c in cards:
 		c.position = original_positions[c]
+		c.disabled = true
 
 	card.position = original_positions[card] + Vector2(0, -hover_height)
 
-	$HigherButton.disabled = false
-	$LowerButton.disabled = false
+	higher_button.disabled = false
+	lower_button.disabled = false
+
+	higher_button.focus_neighbor_left = lower_button.get_path()
+	higher_button.focus_neighbor_right = lower_button.get_path()
+	higher_button.focus_neighbor_top = lower_button.get_path()
+	higher_button.focus_neighbor_bottom = lower_button.get_path()
+
+	lower_button.focus_neighbor_left = higher_button.get_path()
+	lower_button.focus_neighbor_right = higher_button.get_path()
+	lower_button.focus_neighbor_top = higher_button.get_path()
+	lower_button.focus_neighbor_bottom = higher_button.get_path()
 
 	if $ResultLabel is RichTextLabel:
 		$ResultLabel.text = "[color=black]You picked a card. Will it be higher or lower than 7?[/color]"
 	else:
 		$ResultLabel.text = "You picked a card. Will it be higher or lower than 7?"
+
+	higher_button.grab_focus()
 
 func _on_higher_pressed():
 	resolve_guess("higher")
@@ -109,8 +163,10 @@ func resolve_guess(choice: String):
 	var revealed_value = rigged_card(choice)
 	losses += 1
 
-	$HigherButton.disabled = true
-	$LowerButton.disabled = true
+	choosing_higher_lower = false
+
+	higher_button.disabled = true
+	lower_button.disabled = true
 
 	for card in cards:
 		card.disabled = true
@@ -133,7 +189,7 @@ func resolve_guess(choice: String):
 			dialogue_line
 		]
 
-	$ContinueHint.text = "[Press Space to continue]"
+	$ContinueHint.text = "[Press Space / A to continue]"
 	waiting_for_continue = true
 
 func rigged_card(choice: String) -> int:
@@ -161,17 +217,34 @@ func _on_card_hovered(card: TextureButton):
 		return
 	if card == selected_card:
 		return
+	if card_selection_locked:
+		return
 
+	play_hover_sound()
+	hover_up(card)
+
+func _on_card_focused(card: TextureButton):
+	if waiting_for_continue:
+		return
+	if card == selected_card:
+		return
+	if card_selection_locked:
+		return
+
+	play_hover_sound()
+	hover_up(card)
+
+func play_hover_sound():
 	if hover_sound:
 		hover_sound.stop()
 		hover_sound.play()
-
-	hover_up(card)
 
 func hover_up(card: TextureButton):
 	if waiting_for_continue:
 		return
 	if card == selected_card:
+		return
+	if card_selection_locked:
 		return
 
 	var tween = create_tween()
