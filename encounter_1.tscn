@@ -87,7 +87,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=840522208]
+[node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=517370765]
 stream = ExtResource("5_26j38")
 autoplay = true
 

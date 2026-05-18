@@ -72,7 +72,7 @@ func show_dialogue_line():
 
 	$DialogueBox/DialogueLabel.clear()
 	$hint.visible = false
-	$hint.text = "[Space / Click to continue]"
+	$hint.text = "[Space / A to continue]"
 
 	if line.has("show_bottle") and line["show_bottle"]:
 		show_bottle()

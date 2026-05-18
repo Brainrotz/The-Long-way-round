@@ -58,13 +58,13 @@ fit_content = true
 
 [node name="hint" type="Label" parent="." unique_id=1590527900]
 layout_mode = 0
-offset_left = 766.0
-offset_top = 432.0
-offset_right = 1435.0
-offset_bottom = 525.0
+offset_left = 713.0
+offset_top = 446.0
+offset_right = 1382.0
+offset_bottom = 539.0
 theme_override_fonts/font = ExtResource("2_uilvu")
 theme_override_font_sizes/font_size = 35
-text = "[Space to continue]"
+text = "[Space / A to continue]"
 
 [node name="dialogue_sound" type="AudioStreamPlayer2D" parent="." unique_id=197854114]
 stream = ExtResource("3_absjg")

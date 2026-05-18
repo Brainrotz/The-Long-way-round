@@ -78,7 +78,7 @@ offset_right = 1008.0
 offset_bottom = 514.0
 theme_override_fonts/font = ExtResource("1_ugbg8")
 theme_override_font_sizes/font_size = 35
-text = "[Space to continue]"
+text = "[Space / A to continue]"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1698110126]
 layout_mode = 0
@@ -92,3 +92,4 @@ texture = ExtResource("6_jeodd")
 [node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=1514059100]
 stream = ExtResource("7_dm1ab")
 autoplay = true
+parameters/looping = true

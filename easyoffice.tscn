@@ -69,14 +69,15 @@ texture = ExtResource("2_wqi4g")
 expand_mode = 1
 
 [node name="hint" type="Label" parent="." unique_id=111337065]
+z_index = 2
 layout_mode = 0
-offset_left = 757.0
+offset_left = 662.0
 offset_top = 439.0
-offset_right = 1159.0
+offset_right = 1122.0
 offset_bottom = 530.0
 theme_override_fonts/font = ExtResource("3_xg8ku")
 theme_override_font_sizes/font_size = 40
-text = "[Space to continue]"
+text = "[Space / A to continue]"
 
 [node name="DialogueBox" type="Panel" parent="." unique_id=1500811228]
 z_index = 1
@@ -111,7 +112,7 @@ position = Vector2(528, 315)
 scale = Vector2(0.5773926, 0.5576172)
 sprite_frames = SubResource("SpriteFrames_kos55")
 animation = &"idle"
-frame_progress = 0.92901343
+frame_progress = 0.8653961
 speed_scale = 0.6
 
 [node name="sound2" type="AudioStreamPlayer2D" parent="." unique_id=630557990]

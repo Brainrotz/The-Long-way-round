@@ -69,14 +69,15 @@ texture = ExtResource("2_6iyr2")
 expand_mode = 1
 
 [node name="hint" type="Label" parent="." unique_id=1537797096]
+z_index = 1
 layout_mode = 0
-offset_left = 757.0
+offset_left = 648.0
 offset_top = 439.0
-offset_right = 1159.0
+offset_right = 1317.0
 offset_bottom = 530.0
 theme_override_fonts/font = ExtResource("1_6kfy7")
 theme_override_font_sizes/font_size = 40
-text = "[Space to continue]"
+text = "[Space / A  to continue]"
 
 [node name="DialogueBox" type="Panel" parent="." unique_id=1474359822]
 z_index = 1

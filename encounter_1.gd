@@ -76,7 +76,7 @@ func show_dialogue_line():
 
 	$DialogueBox/DialogueLabel.clear()
 	$hint.visible = false
-	$hint.text = "[Space / Click to continue]"
+	$hint.text = "[Space / A to continue]"
 
 	if has_node("dialogue_sound"):
 		$dialogue_sound.stop()

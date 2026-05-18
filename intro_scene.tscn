@@ -65,13 +65,13 @@ autowrap_mode = 2
 
 [node name="hint" type="Label" parent="." unique_id=46545570]
 layout_mode = 0
-offset_left = 766.0
-offset_top = 432.0
-offset_right = 1435.0
-offset_bottom = 525.0
+offset_left = 714.0
+offset_top = 437.0
+offset_right = 1383.0
+offset_bottom = 530.0
 theme_override_fonts/font = ExtResource("3_b1u3c")
 theme_override_font_sizes/font_size = 35
-text = "[Space to continue]"
+text = "[Space / A  to continue]"
 
 [node name="dialogue_sound" type="AudioStreamPlayer2D" parent="." unique_id=1688097749]
 stream = ExtResource("4_o8unc")
