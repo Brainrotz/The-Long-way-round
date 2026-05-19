@@ -64,10 +64,10 @@ texture = ExtResource("3_rjxsq")
 
 [node name="hint" type="Label" parent="." unique_id=2093824058]
 layout_mode = 0
-offset_left = 628.0
-offset_top = 430.0
-offset_right = 1008.0
-offset_bottom = 514.0
+offset_left = 631.0
+offset_top = 448.0
+offset_right = 1052.0
+offset_bottom = 532.0
 theme_override_fonts/font = ExtResource("1_24iur")
 theme_override_font_sizes/font_size = 35
 text = "[Space  / A to continue]"

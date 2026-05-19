@@ -4,18 +4,28 @@ extends Area3D
 
 var triggered := false
 
+@onready var arrow = $Encounterarrow3
+
 func _ready():
 	body_entered.connect(_on_body_entered)
+
+	if GlobalData.encounter_3_done:
+		arrow.visible = false
+	else:
+		arrow.visible = true
 
 func _on_body_entered(body):
 	if triggered:
 		return
 
 	if GlobalData.encounter_3_done:
+		arrow.visible = false
 		return
 
 	if body.name == "Player":
 		triggered = true
+
+		arrow.visible = false
 
 		# Save return position
 		GlobalData.return_position = body.global_position

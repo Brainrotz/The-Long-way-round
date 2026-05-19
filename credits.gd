@@ -149,6 +149,9 @@ Retro Car With Interior - PSX Asset
 sketchfab.com/3d-models/retro-car-with-interior-psx-asset-free-6d94b353f7b0429d9c6092bd823951ec
 Used as black car
 
+Animated Arrows & Cursors
+spikerman.itch.io/animated-arrows-cursors
+Used as encounter direction arrow
 
 [font_size=22]Character Assets[/font_size]
 Characters PSX
