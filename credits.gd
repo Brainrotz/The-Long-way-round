@@ -193,7 +193,7 @@ Thank you for playing
 
 	await get_tree().process_frame
 
-	# Make the text box tall enough for ALL credits
+	
 	if credits_text is RichTextLabel:
 		credits_text.size.y = credits_text.get_content_height() + 200
 	else:

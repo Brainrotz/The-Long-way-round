@@ -115,6 +115,7 @@ text = "START GAME
 
 [node name="menu" type="AudioStreamPlayer2D" parent="VBoxContainer/Start" unique_id=1858782698]
 stream = ExtResource("3_ppfnh")
+volume_db = -4.875
 autoplay = true
 parameters/looping = true
 

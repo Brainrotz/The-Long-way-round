@@ -1189,7 +1189,7 @@ pixel_size = 0.0101
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_ynvma")
 animation = &"idle"
-frame_progress = 0.60326314
+frame_progress = 0.42517003
 speed_scale = 3.0
 script = ExtResource("100_qalbb")
 
@@ -1210,7 +1210,7 @@ transform = Transform3D(0.028293129, -0.12350181, 0.991941, 0.9995198, -0.009056
 pixel_size = 0.005
 sprite_frames = SubResource("SpriteFrames_35os5")
 animation = &"idle"
-frame_progress = 0.3151613
+frame_progress = 0.338731
 speed_scale = 3.0
 script = ExtResource("159_cu4dw")
 
@@ -1249,7 +1249,7 @@ pixel_size = 0.0101
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_ynvma")
 animation = &"idle"
-frame_progress = 0.60326314
+frame_progress = 0.42517003
 speed_scale = 3.0
 script = ExtResource("100_qalbb")
 
