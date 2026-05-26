@@ -38,7 +38,7 @@ var current_color = "white"
 var typing_speed = 0.03
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 	$DialogueBox.visible = true
 	$hint.visible = false

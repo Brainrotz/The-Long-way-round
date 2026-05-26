@@ -28,7 +28,7 @@ var typing_speed = 0.03
 @onready var cigs_image = $TextureRect
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 	$DialogueBox.visible = true
 	$hint.visible = false

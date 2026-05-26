@@ -30,10 +30,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -548.0
-offset_top = -162.0
-offset_right = 530.0
-offset_bottom = -11.0
+offset_left = -541.0
+offset_top = -176.0
+offset_right = 537.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_82r00")
@@ -62,18 +62,18 @@ offset_bottom = 2417.3333
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_7rott")
 
-[node name="hint" type="Label" parent="." unique_id=1365548499]
-layout_mode = 0
-offset_left = 635.0
-offset_top = 446.0
-offset_right = 1038.0
-offset_bottom = 530.0
-theme_override_fonts/font = ExtResource("2_xx2lk")
-theme_override_font_sizes/font_size = 35
-text = "[Space / A to continue]"
-
 [node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=1125936731]
 stream = ExtResource("5_apfpx")
 volume_db = 4.333
 autoplay = true
 parameters/looping = true
+
+[node name="hint" type="Label" parent="." unique_id=285840688]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 430.0
+offset_right = 1008.0
+offset_bottom = 514.0
+theme_override_fonts/font = ExtResource("2_xx2lk")
+theme_override_font_sizes/font_size = 35
+text = "[Space to continue]"

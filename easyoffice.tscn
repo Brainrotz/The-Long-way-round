@@ -68,17 +68,6 @@ offset_bottom = 653.0
 texture = ExtResource("2_wqi4g")
 expand_mode = 1
 
-[node name="hint" type="Label" parent="." unique_id=111337065]
-z_index = 2
-layout_mode = 0
-offset_left = 662.0
-offset_top = 439.0
-offset_right = 1122.0
-offset_bottom = 530.0
-theme_override_fonts/font = ExtResource("3_xg8ku")
-theme_override_font_sizes/font_size = 40
-text = "[Space / A to continue]"
-
 [node name="DialogueBox" type="Panel" parent="." unique_id=1500811228]
 z_index = 1
 layout_mode = 1
@@ -87,10 +76,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -562.0
-offset_top = -168.0
-offset_right = 566.0
-offset_bottom = -8.0
+offset_left = -541.0
+offset_top = -176.0
+offset_right = 537.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_se87j")
@@ -130,3 +119,13 @@ stream = ExtResource("8_djqww")
 volume_db = 4.333
 autoplay = true
 parameters/looping = true
+
+[node name="hint" type="Label" parent="." unique_id=1465559908]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 430.0
+offset_right = 1008.0
+offset_bottom = 514.0
+theme_override_fonts/font = ExtResource("3_xg8ku")
+theme_override_font_sizes/font_size = 35
+text = "[Space to continue]"

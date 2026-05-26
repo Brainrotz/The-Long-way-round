@@ -16,6 +16,7 @@ var current_color = "#ffffff"
 var typing_speed = 0.03
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$hint.visible = false
 	$character.visible = false
 	$character.play("idle")

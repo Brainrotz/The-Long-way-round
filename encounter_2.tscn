@@ -42,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -548.0
-offset_top = -162.0
-offset_right = 530.0
-offset_bottom = -11.0
+offset_left = -541.0
+offset_top = -176.0
+offset_right = 537.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kw1cf")
@@ -73,16 +73,6 @@ expand_mode = 1
 [node name="Timer" type="Timer" parent="TextureRect" unique_id=108413]
 wait_time = 2.0
 
-[node name="hint" type="Label" parent="." unique_id=285219321]
-layout_mode = 0
-offset_left = 628.0
-offset_top = 430.0
-offset_right = 1008.0
-offset_bottom = 514.0
-theme_override_fonts/font = ExtResource("2_73dmk")
-theme_override_font_sizes/font_size = 35
-text = "[Space / A to continue]"
-
 [node name="VNLayer" type="Control" parent="." unique_id=470979408]
 anchors_preset = 0
 offset_right = 40.0
@@ -105,5 +95,15 @@ offset_right = 1304.0
 offset_bottom = 1007.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_kgu13")
+
+[node name="hint" type="Label" parent="." unique_id=774498151]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 430.0
+offset_right = 1008.0
+offset_bottom = 514.0
+theme_override_fonts/font = ExtResource("2_73dmk")
+theme_override_font_sizes/font_size = 35
+text = "[Space to continue]"
 
 [connection signal="timeout" from="TextureRect/Timer" to="." method="_on_timer_timeout"]

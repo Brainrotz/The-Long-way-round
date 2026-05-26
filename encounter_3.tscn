@@ -32,10 +32,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -548.0
-offset_top = -162.0
-offset_right = 530.0
-offset_bottom = -11.0
+offset_left = -541.0
+offset_top = -176.0
+offset_right = 537.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f84pu")
@@ -70,16 +70,6 @@ offset_bottom = 1074.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ag3fv")
 
-[node name="hint" type="Label" parent="." unique_id=1385482674]
-layout_mode = 0
-offset_left = 628.0
-offset_top = 430.0
-offset_right = 1008.0
-offset_bottom = 514.0
-theme_override_fonts/font = ExtResource("1_ugbg8")
-theme_override_font_sizes/font_size = 35
-text = "[Space / A to continue]"
-
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1698110126]
 layout_mode = 0
 offset_left = 301.99997
@@ -93,3 +83,13 @@ texture = ExtResource("6_jeodd")
 stream = ExtResource("7_dm1ab")
 autoplay = true
 parameters/looping = true
+
+[node name="hint" type="Label" parent="." unique_id=353376829]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 430.0
+offset_right = 1008.0
+offset_bottom = 514.0
+theme_override_fonts/font = ExtResource("1_ugbg8")
+theme_override_font_sizes/font_size = 35
+text = "[Space to continue]"

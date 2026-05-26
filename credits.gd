@@ -8,7 +8,7 @@ extends Control
 var finished = false
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 	if credits_text is RichTextLabel:
 		credits_text.bbcode_enabled = true

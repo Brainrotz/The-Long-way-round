@@ -1,3 +1,4 @@
+
 extends Control
 
 var dialogue = [
@@ -14,6 +15,7 @@ var current_text = ""
 var typing_speed = 0.03
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	start_dialogue()
 
 func start_dialogue():
@@ -26,6 +28,7 @@ func show_line(text):
 	is_typing = true
 	$DialogueBox/DialogueLabel.text = ""
 	$hint.visible = false
+	$dialogue_sound.stop()
 	$dialogue_sound.play()
 	type_text()
 

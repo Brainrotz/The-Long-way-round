@@ -17,6 +17,7 @@ var typing_speed = 0.03
 @onready var dialogue_sound = $dialogue_sound
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	hint.visible = false
 	start_dialogue()
 

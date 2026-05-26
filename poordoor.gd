@@ -16,6 +16,7 @@ var current_text = ""
 var typing_speed = 0.03
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	start_dialogue()
 
 func start_dialogue():

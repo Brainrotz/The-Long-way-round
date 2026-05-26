@@ -13,7 +13,7 @@ var dialogue = [
 	{"type": "player", "text": "......."},
 	{"type": "desc", "text": "You both stare at eachother for a moment"},
 	{"type": "npc", "text": "Here hold this."},
-	{"type": "desc", "text": "He hands you an empty bottle", "show_bottle": true},
+	{"type": "desc", "text": "He hands you an bottle", "show_bottle": true},
 	{"type": "desc", "text": "Its empty."},
 	{"type": "player", "text": "uh...thanks...listen im just trying to get home..can i go now?"},
 	{"type": "npc", "text": "Why"},
@@ -41,7 +41,7 @@ var npc_has_left = false
 @onready var bottle_image = $BottleImage
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 	$DialogueBox.visible = true
 	$hint.visible = false

@@ -9,3 +9,6 @@ var encounter_2_done := false
 var encounter_3_done := false
 var poordoor_done := false
 var easy_mode_unlocked = false
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
