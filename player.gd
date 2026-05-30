@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var speed := 3.0
 
 # Lower = tighter/slower mouse turning
-@export var mouse_sensitivity := 0.001
+@export var mouse_sensitivity := 0.002
 
 # Stops big mousepad swipes from swinging the camera too far
 @export var max_mouse_turn := 16.0
