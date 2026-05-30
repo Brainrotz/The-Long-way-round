@@ -7,7 +7,7 @@ var dialogue = [
 	"And someone to press the button for them.",
 	"We’ve got this masterpiece.",
 	"Suppose we're not the priority, are we?",
-	"Well i guess i can get my steps in and use the stairs...not that i have choice",
+	"Well i guess i can get my steps in and use the stairs...not that i have a choice",
 	"okay...to the 10th floor we go"
 ]
 
